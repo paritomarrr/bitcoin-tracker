@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const CRYPTO_API_URL = "https://rest.cryptoapis.io";
-const CRYPTO_API_KEY = "e807cfe6fbaade232d9e2fc98e81b70e1defad78"; 
+const CRYPTO_API_KEY = "043ad90896c0ca5008631bf13fe97927c8f1ac52"; 
 const callbackSecretKey = "mySuperSecretKey123";
 
 
@@ -27,7 +27,7 @@ async function createSubscription(address, callbackUrl) {
                         "allowDuplicates": true,
                         "callbackSecretKey": callbackSecretKey,
                         "callbackUrl": callbackUrl,
-                        "receiveCallbackOn": 3
+                        "receiveCallbackOn": 5
                     }
                 }
             },
@@ -70,7 +70,7 @@ app.post("/", (req, res) => {
 // Route to trigger subscription creation
 app.get("/subscribe", async (req, res) => {
     const address = "2MxQoNPZEQ2FhFVAxmp5Cv7hhD3WqMNH1Yu"; 
-    const callbackUrl = "https://401f-2401-4900-8202-e368-c4dc-def9-f3e2-3277.ngrok-free.app";
+    const callbackUrl = "https://bd67-103-170-81-189.ngrok-free.app";
 
     try {
         const subscriptionResponse = await createSubscription(address, callbackUrl);
@@ -81,7 +81,7 @@ app.get("/subscribe", async (req, res) => {
 });
 
 // Start server on port 3005
-const PORT = 3005;
+const PORT = 3006;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
